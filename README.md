@@ -8,6 +8,7 @@ This will facilitate building out Cypher System characters from the existing opt
 * [githubPages](https://ginsusamurai.github.io/cypher-character-generator/)
 
 ## Back End
-* heroku client, express, cors, dotenv
+* heroku CLI, heroku postgres, express, cors, dotenv
 * [heroku server](https://csgcharacterbuilder.herokuapp.com/)
+
 
