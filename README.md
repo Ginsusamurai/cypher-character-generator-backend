@@ -5,7 +5,9 @@ This will facilitate building out Cypher System characters from the existing opt
 
 ## Front End
 * js, jquery, html5, css3, handlebars
+* [githubPages](https://ginsusamurai.github.io/cypher-character-generator/)
 
 ## Back End
-* heroku client, express, cors
+* heroku client, express, cors, dotenv
 * [heroku server](https://csgcharacterbuilder.herokuapp.com/)
+
