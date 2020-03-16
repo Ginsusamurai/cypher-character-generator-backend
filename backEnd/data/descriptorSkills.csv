@@ -1,9 +1,9 @@
-name, type(pool. skill. inability. misc.), value
-'Charismatic', 'int pool', 2
-'Charismatic Skill', 'skill', 'Trained in Pleasant Social Interatctions'
-'Resistant To Charms', 'misc', 'You’re aware of how others can manipulate and charm people, and you notice when those tactics are used on you. Because of this awareness, you are trained in resisting any kind of persuasion or seduction if you wish it'
-'Generous', 'misc', 'Allies who have spent the last day with you add +1 to their recovery rolls.'
-'Altruistic', 'misc', 'If you’re standing next to a creature that takes damage, you can intercede and take 1 point of that damage yourself (reducing the damage inflicted on the creature by 1 point). If you have Armor, it does not provide a benefit when you use this ability.'
-'Beneficient Skill', 'skill', 'You’re trained in all tasks related to pleasant social interaction, putting other people at ease, and gaining trust'
-'Helpful', 'misc', 'Whenever you help another character, that character gains the benefit as if you were trained even if you are not trained or specialized in the attempted task.'
-'Beneficient inability', 'inability', 'While you are alone, all Intellect and Speed tasks are hindered.'
+descriptor_name, descriptor_skill_name, descriptor_skill_type(pool. skill. inability. misc.), descriptor_skill_value
+'Appealing', 'Charismatic', 'int pool', 2
+'Appealing', 'Charismatic Skill', 'skill', 'Trained in Pleasant Social Interatctions'
+'Appealing', 'Resistant To Charms', 'misc', 'You’re aware of how others can manipulate and charm people, and you notice when those tactics are used on you. Because of this awareness, you are trained in resisting any kind of persuasion or seduction if you wish it'
+'Beneficient', 'Generous', 'misc', 'Allies who have spent the last day with you add +1 to their recovery rolls.'
+'Beneficient', 'Altruistic', 'misc', 'If you’re standing next to a creature that takes damage, you can intercede and take 1 point of that damage yourself (reducing the damage inflicted on the creature by 1 point). If you have Armor, it does not provide a benefit when you use this ability.'
+'Beneficient', 'Beneficient Skill', 'skill', 'You’re trained in all tasks related to pleasant social interaction, putting other people at ease, and gaining trust'
+'Beneficient', 'Helpful', 'misc', 'Whenever you help another character, that character gains the benefit as if you were trained even if you are not trained or specialized in the attempted task.'
+'Beneficient', 'Beneficient inability', 'inability', 'While you are alone, all Intellect and Speed tasks are hindered.'

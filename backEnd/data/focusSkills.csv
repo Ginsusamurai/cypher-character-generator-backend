@@ -1,4 +1,4 @@
-focus, tier, choice, name
+focus_name, tier, choice, focus_skill_name
 'Abides In Stone', 1, false, 'Golem Body'
 'Abidse In Stone', 1, false, 'Golem Healing'
 'Abides In Stone', 2, false, 'Golem Grip'
