@@ -1,11 +1,13 @@
 /* eslint-disable quotes */
 'use strict';
+
 function loadDescriptorList(){
 
   const pg = require('pg');
   const fs = require("fs");
   const fastcsv = require("fast-csv");
   const Pool = require("pg").Pool;
+  require('dotenv').config({path:'../../.env'});
 
   // const client = new pg.Client();
 
@@ -17,7 +19,6 @@ function loadDescriptorList(){
   // });
 
   let stream = fs.createReadStream("../data/descriptorList.csv");
-
   
   let csvData = [];
   let csvStream = fastcsv
@@ -33,7 +34,7 @@ function loadDescriptorList(){
         host: "localhost",
         user: "postgres",
         database: "cypher",
-        password: "Multisync97f!",
+        password: process.env.DBPASS,
         port: 5432,
       });
   

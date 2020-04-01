@@ -8,7 +8,7 @@ function loadFocusSkills() {
   const fs = require("fs");
   const fastcsv = require("fast-csv");
   const Pool = require("pg").Pool;
-  
+  require('dotenv').config({path:'../../.env'});  
   // const client = new pg.Client();
   
   
@@ -34,7 +34,7 @@ function loadFocusSkills() {
         host: "localhost",
         user: "postgres",
         database: "cypher",
-        password: "Multisync97f!",
+        password: process.env.DBPASS,
         port: 5432,
       });
   
