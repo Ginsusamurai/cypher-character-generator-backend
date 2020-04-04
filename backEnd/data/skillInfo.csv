@@ -1,3 +1,3 @@
 skill_name, warrior_tier, adept_tier, explorer_tier, speaker_tier, general_tier, skill_type, point_cost, pool_type, description
-'Bash', 1, 0, 0, 0, 'Low Tier','Action', 1, 'Might', "This is a pummeling melee attack. Your attack inflicts 1 less point of damage than normal, but dazes your target for one round, during which time the difficulty of all tasks it performs is modified by one step to its detriment. Action."
-'No Need For Weapons', 1, 0, 1, 0, 'Low Tier', 'Enabler', 0, 'none', "When you make an unarmed attack (such as a punch or kick), it counts as a medium weapon instead of a light weapon. Enabler" 
+'Bash',1,0,0,0,'Low Tier','Action',1,'Might','This is a pummeling melee attack. Your attack inflicts 1 less point of damage than normal, but dazes your target for one round, during which time the difficulty of all tasks it performs is modified by one step to its detriment. Action.'
+'No Need For Weapons',1,0,1,0,'Low Tier','Enabler',0,'none','When you make an unarmed attack (such as a punch or kick), it counts as a medium weapon instead of a light weapon. Enabler' 

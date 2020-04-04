@@ -7,47 +7,43 @@ const cors = require('cors');
 app.use(cors());
 const PORT = process.env.PORT || 3001;
 app.use(express.static('.public'));
-
-const fs = require('fs');
-const fastcsv = require('fast-csv');
-
-let stream = fs.createReadStream('./data/skillInfo.csv');
-let csvData = [];
-let csvStream = fastcsv
-  .parse()
-  .on("data", function(data) {
-    csvData.push(data);
-  })
-  .on("end", function() {
-    //remove header
-    csvData.shift();
-    let sql = "INSERT INTO skillinfo (skill_name, warrior_tier, adept_tier, explorer_tier, general_tier, skill_type, point_cost, pooly_type, description) VALUSE ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10) RETURNING *;"
-    let values = [csvData[0],csvData[1],csvData[2],csvData[3],csvData[4],csvData[5],csvData[6],csvData[7],csvData[8],csvData[9]];
-    client.query(sql, values).then(datam => {console.log(datam)}));
-  });
-
-stream.pipe(csvStream);
-
-
 const pg = require('pg');
-const client = new pg.Client({
-  connectionString: process.env.DATABASE_URL,
-  ssl: true,
-});
 
-client.connect();
+// console.log(process.env.DATABASE_URL);
 
-client.query('SELECT table_schema, table_name FROM information_schema.tables;', (err,res) => {
-  if (err) throw err;
-  for (let row of res.rows){
-    console.log(JSON.stringify(row));
-  }
-  client.end();
-});
+
+// app.get('/', (request, response) => {
+//   console.log('1');
+//   const pgClient = new pg.Client(process.env.DATABASE_URL);
+//   console.log('2');
+//   pgClient.connect();
+//   console.log('3');
+//   let query = 'SELECT descriptor_name FROM descriptorlist;';
+//   pgClient.query(query)
+//     .then(results => {
+//       console.log('4');
+//       let descriptorArray = results.rows;
+//       console.log('5');
+//       console.log(descriptorArray);
+//       response.render('index.ejs', {descriptorArray: descriptorArray});
+//       console.log('6');
+//     })
+//     .catch(err => {console.log('err', err);
+//     });
+// });
 
 
 app.get('/', (request, response) => {
-  response.send('hi');
+  const charHandlers = require('../frontEnd/js/characterSelectorHandler');
+  // import getDescriptorList from '../frontEnd/js/characterSelectorHandler.js';
+  console.log('char', charHandlers);
+  
+  Promise.all([charHandlers.getDescriptorList(), charHandlers.getTypeList(), charHandlers.getFocusList()])
+    .then(val => {
+      response.render('index.ejs', {descriptorArray: val[0], typeArray: val[1], focusArray: val[2]});
+      console.log(val);
+    });
+
 });
 
 app.listen(PORT, () => console.log(`listening on ${PORT}`));
