@@ -20,8 +20,11 @@
   "dependencies": {
     "cors": "^2.8.5",
     "dotenv": "^8.2.0",
+    "ejs": "^3.0.2",
+    "ejs-lint": "^1.0.1",
     "express": "^4.17.1",
     "fast-csv": "^4.1.1",
+    "package.json": "^2.0.1",
     "pg": "^7.18.2"
   },
   "devDependencies": {}

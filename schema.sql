@@ -25,11 +25,11 @@ CREATE TABLE typeinfo (
   extra NUMERIC(2),
   effort NUMERIC (1),
   cypher NUMERIC (1),
-  edge NUMERIC (1),
+  edge VARCHAR (6),
   edge_limit NUMERIC(1),
   abilities NUMERIC(1),
   starting_items TEXT, 
-  weapons VARCHAR (10)
+  weapons VARCHAR (6)
 );
 
 CREATE TABLE focusskills (
@@ -48,6 +48,7 @@ CREATE TABLE descriptorskills (
 
 CREATE TABLE descriptorlist (
   descriptor_name VARCHAR (255),
-  decriptor_description TEXT
+  descriptor_description TEXT,
+  UNIQUE(descriptor_description)
 );
 
