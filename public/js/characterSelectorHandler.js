@@ -6,7 +6,7 @@ require('dotenv').config();
 
 
 function getDescriptorList() {
-  
+
   return new Promise((resolve, reject) => {
     // console.log('nerp', process.env.DATABASE_URL);
 

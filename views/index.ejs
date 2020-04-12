@@ -4,33 +4,53 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Document</title>
-  <script src="jquery-3.4.1.min.js"></script>
+  <link rel="stylesheet" href="/css/reset.css">
+  <link rel="stylesheet" href="/css/base.css">
+  <link rel="stylesheet" href="/css/layout.css">
+  <link rel="stylesheet" href="/css/module.css">
+  <link rel="stylesheet" href="/css/state.css">
 </head>
 <body>
-  <label for="descriptorSelector">I am a(n)</label>
-  <select id="descriptorSelector">
-    <option selected disabled>"Adjective"</option>
-  <% descriptorArray.forEach( descriptor => { %>
-    <option value=<%= descriptor.descriptor_name %>><%= descriptor.descriptor_name %></option>
-<% }) %>
-  </select>
 
-  <label for="typeSelector">,</label>
-  <select id="typeSelector">
-    <option selected disabled>"Noun"</option>
-  <% typeArray.forEach( type => { %>
-    <option value=<%= type.type_name %>><%= type.type_name %></option>
-<% }) %>
-  </select>
+  <header>Cypher System Char Gen</header>
+  <nav>
+    <label for="descriptorSelector">I am a(n)</label>
+    <select id="descriptorSelector">
+      <option selected disabled>"Adjective"</option>
+      <% descriptorArray.forEach( descriptor => { %>
+        <option value='<%= descriptor.descriptor_name %>'><%= descriptor.descriptor_name %></option>
+        <% }) %>
+    </select>
+    
+    <label for="typeSelector">,</label>
+    <select id="typeSelector">
+      <option selected disabled>"Noun"</option>
+      <% typeArray.forEach( type => { %>
+        <option value='<%= type.type_name %>'><%= type.type_name %></option>
+        <% }) %>
+      </select>
+      
+      <label for="focusSelector">that</label>
+      <select id="focusSelector">
+        <option selected disabled>"Verbs"</option>
+        <% focusArray.forEach( focus => { %>
+      <option value='<%= focus.focus_name %>'><%= focus.focus_name %></option>
+      <% }) %>
+    </select>
+  </nav>
 
-  <label for="focusSelector">that</label>
-  <select id="focusSelector">
-    <option selected disabled>"Verbs"</option>
-  <% focusArray.forEach( focus => { %>
-    <option value=<%= focus.focus_name %>><%= focus.focus_name %></option>
-<% }) %>
-  </select>
+  <section id='descriptorSection'>Descriptor</section>
+  <section id='typeSection'>Type</section>
+  <section id='focusSection'>Focus</section>
+
+  
+  
+  <p id='addHere'></p>
 
 </body>
+<script
+  src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script> 
+  <script type="text/javascript" src="/js/dataFetchers.js"></script>
+<script type="text/javascript" src="/js/app.js"></script>
 </html>
 

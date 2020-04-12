@@ -1,18 +1,22 @@
 'use strict';
 
-const express = require('express');
-const app = express();
 require('dotenv').config();
-const cors = require('cors');
-app.use(cors());
-const PORT = process.env.PORT || 3001;
-app.use(express.static('.public'));
+
+const express = require('express');
 const pg = require('pg');
+const cors = require('cors');
+const app = express();
+const PORT = process.env.PORT || 3001;
+
+app.use(express.static("public"));
+app.use(cors());
+
+
 
 
 app.get('/', (request, response) => {
-  const charHandlers = require('../frontEnd/js/characterSelectorHandler');
-  // import getDescriptorList from '../frontEnd/js/characterSelectorHandler.js';
+  const charHandlers = require('../public/js/characterSelectorHandler');
+  // import getDescriptorList from '../public/js/characterSelectorHandler.js';
   console.log('char', charHandlers);
 
   Promise.all([charHandlers.getDescriptorList(), charHandlers.getTypeList(), charHandlers.getFocusList()])
