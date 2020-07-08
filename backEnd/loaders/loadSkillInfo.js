@@ -31,7 +31,7 @@ function loadSkillInfo() {
       pg.Pool
       const pool = new Pool({
         host: "localhost",
-        user: "postgres",
+        user: process.env.SEED_USER,
         database: "cypher",
         password: process.env.DBPASS,
         port: 5432,
