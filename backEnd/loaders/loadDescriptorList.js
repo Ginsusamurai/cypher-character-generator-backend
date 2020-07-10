@@ -1,7 +1,7 @@
 /* eslint-disable quotes */
 'use strict';
 
-function loadDescriptorList(){
+async function loadDescriptorList(){
 
   const pg = require('pg');
   const fs = require("fs");
@@ -9,17 +9,11 @@ function loadDescriptorList(){
   const Pool = require("pg").Pool;
   require('dotenv').config({path:'../../.env'});
 
-  // const client = new pg.Client();
-
-
-
-  // const client = new pg.Client({
-  //   connectionString: process.env.DATABASE_URL,
-  //   ssl: true,
-  // });
-
-  let stream = fs.createReadStream("../data/descriptorList.csv");
+  let stream = fs.createReadStream("../data/descriptorList.csv",);
   
+  pg.Pool
+  const pool = new Pool({connectionString: process.env.DATABASE_URL});
+
   let csvData = [];
   let csvStream = fastcsv
     .parse({quote: "'"},)
@@ -29,18 +23,10 @@ function loadDescriptorList(){
     .on("end", function() {
       // remove the first line: header
       csvData.shift();
-      pg.Pool
-      const pool = new Pool({
-        host: "localhost",
-        user: "postgres",
-        database: "cypher",
-        password: process.env.DBPASS,
-        port: 5432,
-      });
+      
   
       const query = "INSERT INTO descriptorlist (descriptor_name, descriptor_description) VALUES ($1, $2);";
-  
-  
+
       // connect to the PostgreSQL database
       // save csvData
       pool.connect((err, client, done) => {
@@ -55,13 +41,23 @@ function loadDescriptorList(){
               }
             });
           });
+        }catch(e){
+          console.log(e);
         } finally {
-          done();
         }
+        
       });
-    });
+      pool.end().then(() => console.log('pool closed!'));
+      stream.close();
+    })
+    .on("close",()=>{
+      return 'done';
+    })
+    
   
-  stream.pipe(csvStream);
+  let x = await stream.pipe(csvStream);
+  // console.log(x);
+  // process.exit();
 }
 
 module.exports = loadDescriptorList;

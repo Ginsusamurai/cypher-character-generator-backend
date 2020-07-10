@@ -10,13 +10,8 @@ function loadFocusSkills() {
   const Pool = require("pg").Pool;
   require('dotenv').config({path:'../../.env'});  
   // const client = new pg.Client();
-  
-  
-  
-  // const client = new pg.Client({
-  //   connectionString: process.env.DATABASE_URL,
-  //   ssl: true,
-  // });
+  pg.Pool
+  const pool = new Pool({connectionString: process.env.DATABASE_URL});
   
   let stream = fs.createReadStream("../data/focusSkills.csv");
   
@@ -29,14 +24,7 @@ function loadFocusSkills() {
     .on("end", function() {
       // remove the first line: header
       csvData.shift();
-      pg.Pool
-      const pool = new Pool({
-        host: "localhost",
-        user: "postgres",
-        database: "cypher",
-        password: process.env.DBPASS,
-        port: 5432,
-      });
+      
   
       const query = "INSERT INTO focusskills (focus_name, tier, choice, focus_skill_name) VALUES ($1, $2, $3, $4);";
   

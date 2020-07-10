@@ -10,12 +10,8 @@ function loadTypeInfo(){
   require('dotenv').config({path:'../../.env'});
   // const client = new pg.Client();
   
-  
-  
-  // const client = new pg.Client({
-  //   connectionString: process.env.DATABASE_URL,
-  //   ssl: true,
-  // });
+  pg.Pool
+  const pool = new Pool({connectionString: process.env.DATABASE_URL});
   
   let stream = fs.createReadStream("../data/typeInfo.csv");
   
@@ -28,14 +24,7 @@ function loadTypeInfo(){
     .on("end", function() {
       // remove the first line: header
       csvData.shift();
-      pg.Pool
-      const pool = new Pool({
-        host: "localhost",
-        user: "postgres",
-        database: "cypher",
-        password: process.env.DBPASS,
-        port: 5432,
-      });
+      
   
       const query = "INSERT INTO typeinfo (type_name, might, speed,intellect, extra, effort, cypher, edge, edge_limit, abilities,starting_items, weapons) VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12);";
   
