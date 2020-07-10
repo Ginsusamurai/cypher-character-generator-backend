@@ -8,14 +8,9 @@ function loadDescriptorSkkills() {
   const fastcsv = require("fast-csv");
   const Pool = require("pg").Pool;
   require('dotenv').config({path:'../../.env'});  
-  // const client = new pg.Client();
-  
-  
-  
-  // const client = new pg.Client({
-  //   connectionString: process.env.DATABASE_URL,
-  //   ssl: true,
-  // });
+ 
+  pg.Pool
+  const pool = new Pool({connectionString: process.env.DATABASE_URL});
   
   let stream = fs.createReadStream("../data/descriptorSkills.csv");
   
@@ -28,14 +23,7 @@ function loadDescriptorSkkills() {
     .on("end", function() {
       // remove the first line: header
       csvData.shift();
-      pg.Pool
-      const pool = new Pool({
-        host: "localhost",
-        user: process.env.SEED_USER,
-        database: "cypher",
-        password: process.env.DBPASS,
-        port: 5432,
-      });
+      
   
       const query = "INSERT INTO descriptorskills (descriptor_name,    descriptor_skill_name, descriptor_skill_type, descriptor_skill_value) VALUES ($1, $2, $3, $4);";
   
