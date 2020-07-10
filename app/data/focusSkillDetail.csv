@@ -1,0 +1,3 @@
+skill_name(text), pool(Might/Speed/Intellect/na), cost(#/#+/na), action_type, feature(skill/ability/armor/pool),mechanics(array of more details), text
+'Natural Charisma',na,na,Enabler,Skill, ['All Social Interactions'],'You are trained in all social interactions, whether they involve charm, learning a person’s secrets, or intimidating others. Enabler.'
+'Natural Crafter',Intellect,3+,Enabler, Ability, [],All commonplace objects or structures you craft are effectively one level higher than an average example of that object or structure. For instance, if you craft a defensive wall that would normally be level 4, its effective level is 5. Enabler.
