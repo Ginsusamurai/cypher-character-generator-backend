@@ -1,7 +1,7 @@
 /* eslint-disable quotes */
 'use strict';
 
-function loadSkillInfo() {
+function loadAbilityInfo() {
 
   const pg = require('pg');
   const fs = require("fs");
@@ -13,11 +13,11 @@ function loadSkillInfo() {
   pg.Pool
   const pool = new Pool({connectionString: process.env.DATABASE_URL});
   
-  let stream = fs.createReadStream("../data/skillInfo.csv");
+  let stream = fs.createReadStream("../data/abilityInfo.csv");
   
   let csvData = [];
   let csvStream = fastcsv
-    .parse({quote: "'"})
+    .parse()
     .on("data", function(data) {
       csvData.push(data);
     })
@@ -26,7 +26,7 @@ function loadSkillInfo() {
       csvData.shift();
       
   
-      const query = "INSERT INTO skillinfo (skill_name, warrior_tier, adept_tier, explorer_tier, speaker_tier, general_tier, skill_type, point_cost, pool_type, description) VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10);";
+      const query = "INSERT INTO abilityinfo (ability_name, warrior_tier, adept_tier, explorer_tier, speaker_tier, general_tier, ability_type, point_cost, pool_type, description) VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10);";
   
   
       // connect to the PostgreSQL database
@@ -52,4 +52,4 @@ function loadSkillInfo() {
   stream.pipe(csvStream);
 }
 
-module.exports = loadSkillInfo;
+module.exports = loadAbilityInfo;

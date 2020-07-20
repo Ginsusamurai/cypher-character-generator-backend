@@ -16,7 +16,7 @@ async function loadDescriptorList(){
 
   let csvData = [];
   let csvStream = fastcsv
-    .parse({quote: "'"},)
+    .parse()
     .on("data", function(data) {
       csvData.push(data);
     })

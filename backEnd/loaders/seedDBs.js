@@ -3,11 +3,13 @@
 const loadDescriptorList = require('./loadDescriptorList.js');
 const loadDescriptorSkills = require('./loadDescriptorSkills');
 const loadFocusSkills = require('./loadFocusSkills');
-const loadSkillInfo = require('./loadSkillInfo');
+const loadAbilityInfo = require('./loadAbilityInfo');
 const loadTypeInfo = require('./loadTypeInfo');
+const focusSkillDetail = require('./focusSkillDetail');
 
 loadDescriptorList();
 loadDescriptorSkills();
 loadFocusSkills();
-loadSkillInfo();
+loadAbilityInfo();
 loadTypeInfo();
+focusSkillDetail();

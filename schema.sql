@@ -1,17 +1,19 @@
-DROP TABLE IF EXISTS skillInfo;
+DROP TABLE IF EXISTS abilityinfo;
 DROP TABLE IF EXISTS typeinfo;
 DROP TABLE IF EXISTS focusskills;
 DROP TABLE IF EXISTS descriptorskills;
 DROP TABLE IF EXISTS descriptorlist;
+DROP TABLE IF EXISTS focusskillsdetails;
 
-CREATE TABLE skillinfo (
-  skill_name VARCHAR (255),
+
+CREATE TABLE abilityinfo (
+  ability_name VARCHAR (255),
   warrior_tier NUMERIC (1),
   adept_tier NUMERIC (1),
   explorer_tier NUMERIC (1),
   speaker_tier NUMERIC (1),
   general_tier VARCHAR (255),
-  skill_type VARCHAR (255),
+  ability_type VARCHAR (255),
   point_cost NUMERIC (2),
   pool_type VARCHAR (255),
   description TEXT
@@ -51,4 +53,14 @@ CREATE TABLE descriptorlist (
   descriptor_description TEXT,
   UNIQUE(descriptor_description)
 );
+
+CREATE TABLE focusskillsdetails (
+  skill_name VARCHAR(255),
+  pool VARCHAR(20),
+  cost VARCHAR(5),
+  action_type VARCHAR(15),
+  feature VARCHAR(15),
+  mechanics TEXT,
+  description TEXT
+)
 
