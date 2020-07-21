@@ -1,9 +1,0 @@
-descriptor_name,descriptor_skill_name,descriptor_skill_type(pool. skill. inability. misc.), descriptor_skill_value
-"Appealing","Charismatic","int pool",2
-"Appealing","Charismatic Skill","skill","Trained in Pleasant Social Interatctions"
-"Appealing","Resistant To Charms","misc","You’re aware of how others can manipulate and charm people, and you notice when those tactics are used on you. Because of this awareness, you are trained in resisting any kind of persuasion or seduction if you wish it"
-"Beneficent","Generous", "misc","Allies who have spent the last day with you add +1 to their recovery rolls."
-"Beneficent","Altruistic", "misc","If you’re standing next to a creature that takes damage, you can intercede and take 1 point of that damage yourself (reducing the damage inflicted on the creature by 1 point). If you have Armor, it does not provide a benefit when you use this ability."
-"Beneficent","Beneficient Skill","skill","You’re trained in all tasks related to pleasant social interaction, putting other people at ease, and gaining trust"
-"Beneficent","Helpful","misc","Whenever you help another character, that character gains the benefit as if you were trained even if you are not trained or specialized in the attempted task."
-"Beneficent","Beneficient inability","inability","While you are alone, all Intellect and Speed tasks are hindered."
