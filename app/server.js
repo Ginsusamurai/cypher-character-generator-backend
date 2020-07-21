@@ -8,6 +8,7 @@ const app = express();
 const PORT = process.env.PORT || 3001;
 const morgan = require('morgan');
 const pgClient = require('./db.js');
+const bodyParser = require('body-parser');
 
 
 //routes
@@ -17,6 +18,8 @@ const queryDetails = require('./routes/queryDetails.js');
 app.use(express.static("public"));
 app.use(cors());
 app.use(morgan('dev'));
+app.use(bodyParser.urlencoded({extended:true}));
+app.use(bodyParser.json());
 
 app.use(loaders);
 app.use(queryDetails);

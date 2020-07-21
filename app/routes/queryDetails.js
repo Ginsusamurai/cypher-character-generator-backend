@@ -2,10 +2,11 @@ const express = require('express');
 const router = express.Router();
 
 const optionDetails = require('../routerFiles/characterOptionDetails.js');
+const focusSkillDetails = require('../routerFiles/focusSkillDetails.js');
 
 router.get('/descriptor/:descriptor_name', optionDetails.descriptorDetails);
 router.get('/type/:type_name', optionDetails.typeDetails);
 router.get('/focus/:focus_name', optionDetails.focusDetails);
-router.get('/focusSkillDetails', focusSkillDetails);
+router.post('/focusSkillDetails', focusSkillDetails);
 
 module.exports = router;
